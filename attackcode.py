@@ -14,7 +14,7 @@ def _connect(port = BASE_PORT, host = WEEK4_IP):
 def find_port():
     port = BASE_PORT
     host = WEEK4_IP
-    while port < 9999:
+    while port < 6130:
         print(f"Trying to connect to port {port}.")
         valid = _connect(host, port)
         if valid:
