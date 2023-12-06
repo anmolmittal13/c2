@@ -4,9 +4,7 @@ import sys
 BASE_PORT = 3040
 WEEK4_IP = '10.0.2.5'
 
-def _connect():
-    port = BASE_PORT
-    host = WEEK4_IP
+def _connect(port = BASE_PORT, host = WEEK4_IP):
     try:
         sock.connect((host, port))
     except Exception as e:
