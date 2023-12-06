@@ -16,7 +16,7 @@ def find_port():
     host = WEEK4_IP
     while port < 6130:
         print(f"Trying to connect to port {port}.")
-        valid = _connect(host, port)
+        valid = _connect(port, host)
         if valid:
             print(f"Connected to port {port}.")
             break
