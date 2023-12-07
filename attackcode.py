@@ -12,7 +12,7 @@ def shell():
             sock.close()
             break;
         else:
-            sock.send(smd.encode('utf-8'))
+            sock.send(cmd.encode('utf-8'))
 
 def is_ip_valid(ip):
     if ip.count('.') != 3:
