@@ -23,15 +23,15 @@ def _connect(port = BASE_PORT, host = WEEK4_IP):
 def find_port():
     port = BASE_PORT
     host = WEEK4_IP
-    if is_ip_valid(host): 
-        while port < 6130:
-            print(f"Trying to connect to port {port}.")
-            valid = _connect(port, host)
-            if valid:
-                print(f"Connected to port {port}.")
-                break
-            port += 1
-        return None
+    is_ip_valid(host)
+    while port < 6130:
+        print(f"Trying to connect to port {port}.")
+        valid = _connect(port, host)
+        if valid:
+            print(f"Connected to port {port}.")
+            break
+        port += 1
+    return None
 
 if __name__ == "__main__":
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
