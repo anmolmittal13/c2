@@ -10,7 +10,7 @@ def shell():
         cmd = input("$: ")
         if(cmd == "q"):
             sock.close()
-            break;
+            break
         else:
             sock.send(cmd.encode('utf-8'))
 
