@@ -4,6 +4,16 @@ import sys
 BASE_PORT = 3040
 WEEK4_IP = '10.0.2.5'
 
+def shell():
+    print("Starting terminal. To exit terminal type 'q'.")
+    while True:
+        cmd = input("$: ")
+        if(cmd == "q"):
+            sock.close()
+            break;
+        else:
+            sock.send(smd.encode('utf-8'))
+
 def is_ip_valid(ip):
     if ip.count('.') != 3:
         print(f"{ip} is not a valid IP address.")
@@ -43,3 +53,4 @@ def find_port():
 if __name__ == "__main__":
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     find_port()
+    shell()
