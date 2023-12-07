@@ -10,7 +10,7 @@ BASE_PORT = 3040
 
 def execute(connection):
     while True:
-        received = conn.recv(4096).decode()
+        received = connection.recv(4096).decode()
         if not received:
             connection.close()
             break
