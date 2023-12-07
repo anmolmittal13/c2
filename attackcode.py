@@ -18,7 +18,7 @@ def is_ip_valid(ip):
         except ValueError:
             print(f"{ip} is not a valid IP address.")
             return False
-        return True
+    return True
 
 def _connect(port = BASE_PORT, host = WEEK4_IP):
     try:
@@ -30,14 +30,14 @@ def _connect(port = BASE_PORT, host = WEEK4_IP):
 def find_port():
     port = BASE_PORT
     host = WEEK4_IP
-    # is_ip_valid(host)
-    while port < 6130:
-        print(f"Trying to connect to port {port}.")
-        valid = _connect(port, host)
-        if valid:
-            print(f"Connected to port {port}.")
-            break
-        port += 1
+    if is_ip_valid(host):
+        while port < 6130:
+            print(f"Trying to connect to port {port}.")
+            valid = _connect(port, host)
+            if valid:
+                print(f"Connected to port {port}.")
+                break
+            port += 1
     return None
 
 if __name__ == "__main__":
