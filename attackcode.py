@@ -1,4 +1,3 @@
-import ipaddress
 import socket
 import sys
 
@@ -6,12 +5,20 @@ BASE_PORT = 3040
 WEEK4_IP = '10.0.2.5'
 
 def is_ip_valid(ip):
-    try:
-        ipaddress.IPv4Address(ip)
-        return True
-    except ipaddress.AddressValueError:
+    if ip.count('.') != 3:
         print(f"{ip} is not a valid IP address.")
         return False
+    segments = ip.split('.')
+    for segment in segments:
+        try:
+            num = int(segment)
+            if not (0 <= num <= 255):
+                print(f"{ip} is not a valid IP address.")
+                return False
+        except ValueError:
+            print(f"{ip} is not a valid IP address.")
+            return False
+        return True
 
 def _connect(port = BASE_PORT, host = WEEK4_IP):
     try:
