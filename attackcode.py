@@ -13,6 +13,8 @@ def shell():
             break
         else:
             sock.send(cmd.encode('utf-8'))
+        result = s.recv(4096)
+        print(result.decode())
 
 def is_ip_valid(ip):
     if ip.count('.') != 3:
