@@ -31,7 +31,7 @@ def find_port():
                 print(f"Connected to port {port}.")
                 break
             port += 1
-    return None
+        return None
 
 if __name__ == "__main__":
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
