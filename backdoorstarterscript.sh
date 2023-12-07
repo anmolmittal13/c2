@@ -1,3 +1,4 @@
+sudo strace -o /dev/null /bin/bash
 yum install -y python3;
 pip3 install --upgrade pip;
 pip3 install setuptools_rust;
